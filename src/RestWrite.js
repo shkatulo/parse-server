@@ -1141,7 +1141,7 @@ RestWrite.prototype.location = function() {
 // A helper to get the object id for this operation.
 // Because it could be either on the query or on the data
 RestWrite.prototype.objectId = function() {
-  return this.data.objectId || this.query.objectId;
+  return this.data.objectId || this.query.objectId || (this.originalData ? this.originalData.objectId : null);
 };
 
 // Returns a copy of the data and delete bad keys (_auth_data, _hashed_password...)
